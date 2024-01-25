@@ -10,92 +10,78 @@
         Read more here: https://tailwindcss.com/docs/installation 
     -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #c0adad;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #calculator {
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 400;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .button {
-            background-color: #ff8c00;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        input {
-            width: 100%;
-            padding: 15px !important;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            font-size: 15px !important;
-        }
-
-        .row{
-            display: flex;
-            margin: 10px;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="dark:text-white light:text-black">
-
     <div id="calculator">
         <input type="text" id="display" readonly>
         <div class="row">
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
-            <button class="button">/</button>
+            <button class="button">MC</button>
+            <button class="button">MR</button>
+            <button class="button">M+</button>
+            <button class="button">M-</button>
+            <button class="button">MS</button>
+            <button class="button">M<sup>-</sup></button>
         </div>
         <div class="row">
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">-</button>
+            <button class="button">2<sup>nd</sup></button>
+            <button class="button" onclick="pie_func()">π</button>
+            <button class="button" onclick="e_func()">e</button>
+            <button class="button" onclick="clearInput()">C</button>
+            <button class="button" onclick="deleteLast()">&#9003;</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="square_func()">x²</button>
+            <button class="button" onclick="denominator()">1/x</sub></button>
+            <button class="button" onclick="absolute_func()">|x|</button>
+            <button class="button" onclick="exponential_func()">exp</button>
+            <button class="button" onclick="mod_func()">mod</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="root2_func()">²√x</button>
+            <button class="button" onclick="appendCharacter('(')">&lpar;</button>
+            <button class="button" onclick="appendCharacter(')')">&rpar;</button>
+            <button class="button" onclick="factorial_func()">n!</button>
+            <button class="button" onclick="appendCharacter('/')">/</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="xyPow_func()">x<sup>y</sup></button>
+            <button class="button" onclick="appendCharacter('7')">7</button>
+            <button class="button" onclick="appendCharacter('8')">8</button>
+            <button class="button" onclick="appendCharacter('9')">9</button>
+            <button class="button" onclick="appendCharacter('*')">X</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="appendCharacter('10^')">10<sup>x</sup></button>
+            <button class="button" onclick="appendCharacter('4')">4</button>
+            <button class="button" onclick="appendCharacter('5')">5</button>
+            <button class="button" onclick="appendCharacter('6')">6</button>
+            <button class="button" onclick="appendCharacter('-')">-</button>
         </div>
         
         <div class="row">
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
-            <button class="button">+</button>
+            <button class="button" onclick="log_func()">log</button>
+            <button class="button" onclick="appendCharacter('1')">1</button>
+            <button class="button" onclick="appendCharacter('2')">2</button>
+            <button class="button" onclick="appendCharacter('3')">3</button>
+            <button class="button" onclick="appendCharacter('+')">+</button>
         </div>
         
         <div class="row">
-            <button class="button">0</button>
-            <button class="button">C</button>
-            <button class="button">=</button>
-            <button class="button">*</button> 
+            <button class="button" onclick="ln_func()">In</button>
+            <button class="button" onclick="opposite_func()">+/-</button>
+            <button class="button" onclick="appendCharacter('0')">0</button>
+            <button class="button" onclick="appendCharacter('.')">.</button>
+            <button class="button" onclick="calculateResult()">=</button>
         </div>
     </div>
 
+
+    <script src="script.js"></script>
     <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
     <script>
+
         // custom config for the MTW app 
         const mtwAppConfig = {
             border: true // app border in the MTW page                    
